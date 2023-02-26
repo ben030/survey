@@ -5,6 +5,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class MessageSender {
+    static final String topicExchangeName = "vote-exchange";
 
     private RabbitTemplate rabbitTemplate;
 
@@ -13,6 +14,6 @@ public class MessageSender {
     }
 
     public void send(int message) {
-        rabbitTemplate.convertAndSend("spring-boot-exchange", "foo.bar.baz", message);
+        rabbitTemplate.convertAndSend(topicExchangeName, "votes.programming", message);
     }
 }

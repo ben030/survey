@@ -13,9 +13,9 @@ import org.springframework.context.annotation.Bean;
 @SpringBootApplication
 public class SurveyDbSaverApplication {
 
-    static final String topicExchangeName = "spring-boot-exchange";
+    static final String topicExchangeName = "vote-exchange";
 
-    static final String queueName = "spring-boot";
+    static final String queueName = "vote";
 
     @Bean
     Queue queue() {
@@ -29,7 +29,7 @@ public class SurveyDbSaverApplication {
 
     @Bean
     Binding binding(Queue queue, TopicExchange exchange) {
-        return BindingBuilder.bind(queue).to(exchange).with("foo.bar.#");
+        return BindingBuilder.bind(queue).to(exchange).with("votes.programming");
     }
 
     @Bean

@@ -1,15 +1,20 @@
 package com.example.surveydbsaver;
 
 import com.example.surveydbsaver.Entity.Vote;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+
+import java.util.Objects;
 
 @Component
 public class InitRepository implements CommandLineRunner {
 
-    @Autowired
     VotesRepository votesRepository;
+
+    InitRepository(VotesRepository votesRepository) {
+        Objects.requireNonNull(votesRepository);
+        this.votesRepository = votesRepository;
+    }
 
     @Override
     public void run(String... args) {

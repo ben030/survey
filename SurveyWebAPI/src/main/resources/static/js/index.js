@@ -9,7 +9,7 @@ function submitVoting(){
         const paramsObject = {
             id: vote
         };
-            const target = new URL('/sendvote', window.location.href);
+            const target = new URL('/vote', window.location.href);
             target.search = new URLSearchParams(paramsObject).toString();
 
         // Send the data using post

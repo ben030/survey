@@ -1,21 +1,19 @@
 package com.example.surveydbsaver;
 
-import java.util.concurrent.atomic.AtomicLong;
-
 import com.example.surveydbsaver.Entity.Vote;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @org.springframework.web.bind.annotation.RestController
 public class RestController {
-
-    @Autowired
     private VotesRepository votesRepository;
 
+    RestController(VotesRepository votesRepository) {
+        this.votesRepository = votesRepository;
+    }
+
     @GetMapping("/")
-    public ResponseEntity<Iterable<Vote>> greeting() {
+    public ResponseEntity<Iterable<Vote>> allVotes() {
         return ResponseEntity.ok(votesRepository.findAll());
     }
 }

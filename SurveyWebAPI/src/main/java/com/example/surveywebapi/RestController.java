@@ -3,7 +3,6 @@ package com.example.surveywebapi;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -16,7 +15,7 @@ public class RestController {
     @Autowired
     private MessageSender messageSender;
 
-    @PostMapping("/sendvote")
+    @PostMapping("/vote")
     @ResponseBody
     public void addVote(@RequestParam(value = "id") Integer id ) {
         logger.info("received id: " + id);
